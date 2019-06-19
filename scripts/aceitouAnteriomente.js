@@ -1,14 +1,17 @@
-(function() {
-    "use strict"
-    
-    const aceitouAnteriomente = localStorage.getItem("aceitouSalvar")
-    
-    if (!aceitouAnteriomente) {
-        const aceitouSalvar = confirm("Você aceita que suas informações sejam salvas?")
-        if (!aceitouSalvar) {
-            alert("Você pode mudar depois em configurações")
-        }
-        localStorage.setItem("aceitouSalvar", aceitouSalvar)
+
+const aceitouAnteriormente = localStorage.getItem("aceitouSalvar")
+
+let aceitouSalvar
+
+if (!aceitouAnteriormente) {
+
+    aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
+
+    if (!aceitouSalvar) {
+        alert('Você pode mudar isso na página de configurações')
     }
 
-})()
+    localStorage.setItem("aceitouSalvar", aceitouSalvar)
+}
+
+export default aceitouSalvar
