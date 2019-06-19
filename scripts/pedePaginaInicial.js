@@ -1,10 +1,25 @@
+const aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
 
+if (aceitouSalvar === null) {
 
-let paginaIncial = prompt("Digite um site")
+    let paginaInicial = localStorage.getItem("paginaInicial")
 
-if (paginaIncial.substring(0, 7) !== "http://" && paginaIncial.substring(0, 8) !== "https://") {
-    paginaIncial = "http://" + paginaIncial
+    if (!paginaInicial) {
+        paginaInicial = prompt("Digite um site")
+    }
+
+    // paginaIncial !== null && paginaIncial == false
+    // paginaIncial !== null && paginaIncial == ""
+    if (paginaInicial) {
+
+        if (paginaInicial.substring(0, 7) !== "http://" &&
+            paginaInicial.substring(0, 8) !== "https://") {
+            paginaInicial = "http://" + paginaInicial
+        }
+
+        $janelaPrincipal.src = paginaInicial
+        $inputEndereco.value = paginaInicial
+
+        localStorage.setItem("paginaInicial", paginaInicial)
+    }
 }
-
-$janelaPrincipal.src = paginaIncial
-$inputEndereco.value = paginaIncial

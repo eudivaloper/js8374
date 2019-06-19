@@ -1,4 +1,4 @@
-if (localStorage.getItem("aceitouTermos") === null) {
+if (!localStorage.getItem("aceitouTermos")) {
     let nome = prompt("Qual o seu nome?")
 
     let aceitouTermos = confirm(
