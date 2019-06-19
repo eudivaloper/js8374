@@ -1,6 +1,6 @@
-import aceitouSalvar from './aceitouAnteriomente.js'
+import aceitouSalvar from './aceitouSalvar.js'
 
-if (aceitouSalvar === null && aceitouSalvar === true) {
+if (aceitouSalvar === null || aceitouSalvar === true) {
 
     let paginaInicial = localStorage.getItem('paginaInicial')
     

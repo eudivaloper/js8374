@@ -1,9 +1,7 @@
 
-const aceitouAnteriormente = localStorage.getItem("aceitouSalvar")
+let  aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
 
-let aceitouSalvar
-
-if (!aceitouAnteriormente) {
+if (aceitouSalvar === null) {
 
     aceitouSalvar = confirm('Você aceita que a gente salve suas informações?')
 
