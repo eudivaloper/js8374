@@ -15,7 +15,7 @@ body {
     justify-content: stretch;
 }
 header {
-    background-color: purple;
+    background-color: #debbdd;
     border-bottom: 1px solid #e1e1e2;
     padding: 1em;
     display: flex;
