@@ -8,6 +8,11 @@ $inputPermitiuSalvar.checked = storageAceitouSalvar.aceitouSalvar
 $botaoSalvar.onclick = salvar
 
 function salvar() {
-    storageAceitouSalvar.setAceitouSalvar($inputPermitiuSalvar.checked)
+    const funcaoEscolhida = $inputPermitiuSalvar.checked === true
+    ? storageAceitouSalvar.setAceitou
+    : storageAceitouSalvar.setNaoAceitou
+
+    funcaoEscolhida()
+
     storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
 }

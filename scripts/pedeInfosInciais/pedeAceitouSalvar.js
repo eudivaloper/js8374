@@ -8,7 +8,11 @@ if (storageAceitouSalvar.aceitouSalvar === null) {
         alert('Você pode mudar isso na página de configurações')
     }
 
-    storageAceitouSalvar.setAceitouSalvar(aceitouSalvar)
+    const funcaoSalvar = aceitouSalvar === true
+    ? storageAceitouSalvar.aceitouSalvar
+    : storageAceitouSalvar.setNaoAceitou
+
+    funcaoSalvar()
 }
 
 // export default aceitouSalvar

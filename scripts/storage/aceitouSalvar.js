@@ -1,6 +1,15 @@
 export let aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
 
-export function setAceitouSalvar(valor) {
+function setAceitouSalvar(valor) {
     aceitouSalvar = valor
     localStorage.setItem("aceitouSalvar", valor)
 }
+
+export function setAceitou() {
+    setAceitouSalvar(true)
+}
+
+export function setNaoAceitou() {
+    setAceitouSalvar(false)
+}
+
