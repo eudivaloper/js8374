@@ -9,10 +9,11 @@ if (storageAceitouSalvar.aceitouSalvar === null) {
     }
 
     const funcaoSalvar = aceitouSalvar === true
-    ? storageAceitouSalvar.aceitouSalvar
+    ? storageAceitouSalvar.setAceitou
     : storageAceitouSalvar.setNaoAceitou
 
     funcaoSalvar()
+
 }
 
 // export default aceitouSalvar
