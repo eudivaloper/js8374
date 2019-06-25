@@ -1,6 +1,6 @@
 import { aceitouSalvar as storageAceitouSalvar } from '../storage/aceitouSalvar.js'
 import { paginaInicial, setPaginaInicial } from '../storage/paginaInicial.js'
-import { formataEndereco } from '../endereco/formataEndereco.js';
+import { formataEndereco } from '../endereco/formataEndereco.js'
 
 if (storageAceitouSalvar === null || storageAceitouSalvar === true) {
 
