@@ -22,15 +22,25 @@ function salvar() {
     storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
 }
 
-$botaoLimpaTudo.addEventListener("click", function(){
-    const listaChaveLocalStorege = Object.keys(localStorage)
-    for(let i = 0; i < listaChavesLocalStorage.length; i++) {
-        const chave = listaChaveLocalStorege[i]
-        localStorage.removeItem(chave)
+$botaoLimpaTudo.addEventListener("click", function () {
+    const chavesPermanentes = [
+        "aceitouSalvar",
+        "aceitouTermos"
+    ]
+
+    const listaChavesLocalStorage = Object.keys(localStorage)
+    for(let chave of listaChavesLocalStorage) {
+        const isChavePermanente = chavesPermanentes.includes(chave)
+
+        if(!isChavePermanente) {
+            localStorage.removeItem(chave)
+        }
     }
 
-    const listaChaveSessionStorege = Object.keys(localStorage)
+    const listaChaveSessionStorege = Object.keys(sessionStorage)
     for(let chave of listaChaveSessionStorege) {
         sessionStorage.removeItem(chave)
     }
+
+    window.location.reload()
 })
