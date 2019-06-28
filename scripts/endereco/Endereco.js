@@ -1,5 +1,10 @@
 export function Endereco(endereco) {
 
+    if (this === undefined || (this !== undefined && !(this instanceof Endereco))
+    ) {
+        return new Endereco(endereco)
+    }
+
     let enderecoCompleto
     let enderecoResumido
 
@@ -19,8 +24,6 @@ export function Endereco(endereco) {
         }
 
     }
-    return {
-        urlCompleta: enderecoCompleto,
-        urlResumida: enderecoResumido
-    }
+    this.urlCompleta = enderecoCompleto
+    this.urlResumida = enderecoResumido
 }
