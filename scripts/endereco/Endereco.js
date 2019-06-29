@@ -1,3 +1,5 @@
+import { CakeEnderecoInvalidoError } from "/scripts/erros/CakeEnderecoInvalidoError";
+
 export function Endereco(endereco) {
 
     if (this === undefined || (this !== undefined && !(this instanceof Endereco))
@@ -12,7 +14,22 @@ export function Endereco(endereco) {
         enderecoCompleto = "blank"
         enderecoResumido = "blank"
     } else {
-        const url = new URL(endereco)
+
+        if (
+            endereco.substring(0, 7) !== 'http://' &&
+            endereco.substring(0, 8) !== 'https://'
+        ) {
+            // Assignement Atribuição
+            endereco = 'http://' + endereco
+        }
+
+        let url
+        try {
+            url = new URL(endereco)
+        } catch (error) {
+            const erroCustomizado = new CakeEnderecoInvalidoError(endereco)
+            throw erroCustomizado
+        }
 
         if (url.hostname === "localhost") {
             const paginaLocal = url.pathname.replace("/", "")
@@ -26,4 +43,11 @@ export function Endereco(endereco) {
     }
     this.urlCompleta = enderecoCompleto
     this.urlResumida = enderecoResumido
+
+}
+
+Endereco.prototype = {
+    toString: function () {
+        return this.urlCompleta
+    }
 }
